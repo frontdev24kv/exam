@@ -1,0 +1,9 @@
+@mixin flex($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin margin-bottom($value) {
+  margin-bottom: $value;
+}
