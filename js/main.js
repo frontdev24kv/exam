@@ -31,4 +31,19 @@ playBtn.addEventListener('click', () => {
   } else {
     video.pause();
   }
+  
 });
+
+
+// adaptive menu
+
+const burgerBtn = document.querySelector('.header__burger');
+const menu = document.querySelector('.header__menu');
+burgerBtn.addEventListener('click', toggleClass);
+
+
+function toggleClass() {
+  burgerBtn.classList.toggle('active');
+  menu.classList.toggle('active');
+}
+
