@@ -164,7 +164,7 @@ input[type=file] {
 
 html,
 body {
-  width: 100vw;
+  width: 100%;
   min-height: 100%;
   font-family: "Lato", sans-serif;
   font-size: 18px;
@@ -334,7 +334,6 @@ body {
 .italic {
   font-style: italic;
   color: var(--text-accent-color);
-  display: inline-block;
 }
 
 .text, .footer__text {
@@ -406,11 +405,8 @@ body {
 }
 
 .card-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
 }
 

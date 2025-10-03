@@ -6,7 +6,7 @@
 
 html,
 body {
-  width: 100vw;
+  width: 100%;
   min-height: 100%;
   font-family: v.$font-family;
   font-size: 18px;
@@ -189,7 +189,7 @@ body {
 .italic {
   font-style: italic;
   color: var(--text-accent-color);
-  display: inline-block;
+  // display: inline-block;
 }
 
 .text {
@@ -264,9 +264,8 @@ body {
 // ------------
 
 .card-wrapper {
-  @include m.flex(center, center);
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
 }
 
