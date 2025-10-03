@@ -10,3 +10,27 @@ $text-green: #85bbb1;
 
 $light-background: #fff;
 $dark-background: #000;
+
+
+:root {
+  --base-color: #fff;
+  --text-color: #262a3f;
+  --text-accent-color: #85bbb1;
+  --button-color:  #f1897b;
+  --button-color-dark:  #e54f3a;
+  --button-border:  #e4e4e4;
+  --link-hover-color: #f1897b;
+  --first-screen: url('../assets/img/First-Screen-Bg-Image.png');
+
+}
+.darkmode {
+  --base-color: #000;
+  --text-color: #fff;
+  --text-accent-color: #689ff2;
+  --button-color:  #53f3cd;
+  --button-color-dark:  #02e0ab;
+  --button-border:  #515773;
+  --link-hover-color: #53f3cd;
+  --first-screen: url('../assets/img/first-screen-image-dark.png');
+
+}

@@ -1,0 +1,27 @@
+.theme-switch-btn {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--base-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.theme-switch-btn svg {
+  fill: var(--text-color);
+}
+
+.theme-switch-btn svg:last-child {
+  display: none;
+}
+
+.darkmode .theme-switch-btn svg:first-child {
+  display: none;
+}
+.darkmode .theme-switch-btn svg:last-child {
+  display: block;
+}

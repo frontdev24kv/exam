@@ -2,6 +2,7 @@
 @use 'fonts';
 @use 'vars' as v;
 @use 'mixins' as m;
+@use 'theme';
 
 html,
 body {
@@ -10,6 +11,8 @@ body {
   font-family: v.$font-family;
   font-size: 18px;
   font-weight: 400;
+  color: var(--text-color);
+  background-color: var(--base-color);
 }
 
 .container {
@@ -34,9 +37,9 @@ body {
   @extend .bg;
   content: '';
   position: absolute;
-  background-image: url('../assets/img/First-Screen-Bg-Image.png');
+  background-image: var(--first-screen);
   height: 993px;
-  z-index: -1;
+  // z-index: -1;
 }
 
 // header
@@ -72,7 +75,7 @@ body {
     font-size: 14px;
     line-height: 171%;
     letter-spacing: 0.08em;
-    color: #262a3f;
+    color: var(--text-color);
     position: relative;
 
     &::after {
@@ -81,7 +84,7 @@ body {
       display: block;
       width: 100%;
       height: 3px;
-      background-color: v.$text-red;
+      background-color: var(--link-hover-color);
       transition: all 0.3s linear;
       opacity: 0;
     }
@@ -90,21 +93,6 @@ body {
       opacity: 0.3;
     }
   }
-}
-
-.circle {
-  height: 30px;
-  width: 30px;
-  background-color: #fff;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.theme-btn {
-  position: relative;
-  z-index: 2;
 }
 
 // burger menu
@@ -164,7 +152,6 @@ body {
   font-family: v.$second-family;
   font-size: clamp(24px, 5vw, 44px);
   line-height: 118%;
-  color: #262a3f;
 }
 
 .title_2 {
@@ -178,7 +165,7 @@ body {
   font-size: clamp(19px, 4vw, 32px);
   line-height: 144%;
   letter-spacing: 0.04em;
-  color: v.$text-white;
+  color: var(--base-color);
   max-width: 870px;
   padding-top: 70px;
   padding-left: 160px;
@@ -188,7 +175,6 @@ body {
   font-family: v.$second-family;
   font-size: clamp(16px, 4vw, 24px);
   line-height: 200%;
-  color: #262a3f;
 }
 
 .title_5 {
@@ -197,19 +183,18 @@ body {
   font-size: 20px;
   line-height: 100%;
   letter-spacing: 0.08em;
-  color: v.$text-white;
+  color: var(--base-color);
 }
 
 .italic {
   font-style: italic;
-  color: v.$text-green;
+  color: var(--text-accent-color);
   display: inline-block;
 }
 
 .text {
   font-weight: 300;
   line-height: 144%;
-  color: #262a3f;
   opacity: 0.8;
 }
 
@@ -217,7 +202,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 162%;
-  color: v.$text-white;
+  color: var(--base-color);
 }
 
 .title_xtra {
@@ -225,7 +210,6 @@ body {
   font-size: 68px;
   line-height: 106%;
   text-align: center;
-  color: #262a3f;
   max-width: 370px;
 }
 
@@ -254,9 +238,8 @@ body {
   position: absolute;
   min-width: 770px;
   max-height: 580px;
-  background: v.$text-white;
+  background: var(--base-color);
   opacity: 0.9;
-  z-index: 1;
   left: 400px;
   top: 45px;
   padding: 45px 0;
@@ -334,6 +317,10 @@ body {
 }
 
 .quote {
+  &__title_3 {
+    @extend .title_3;
+    color: #fff;
+  }
   &__text {
     font-family: v.$second-family;
     font-style: italic;
@@ -366,19 +353,15 @@ body {
 
 .grid {
   padding: 75px 70px;
-  // display: grid;
-  // grid-template-columns: repeat(2, 1fr);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   column-gap: 100px;
   row-gap: 70px;
 }
 .feature {
-  max-width: 350px;
   &-box {
     @include m.flex(center, center);
-    flex-wrap: wrap;
+    padding: 13px 0;
   }
 }
 
@@ -400,7 +383,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-height: 340px;
+  height: 340px;
   max-width: 370px;
 }
 .grid__item_bg_2 {
@@ -491,7 +474,7 @@ body {
   line-height: 100%;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: v.$text-red;
+  color: var(--button-color);
   position: relative;
   transition: all 0.3s linear;
   display: block;
@@ -502,7 +485,7 @@ body {
     display: block;
     width: 100%;
     height: 13px;
-    background-color: v.$text-red;
+    background-color: var(--button-color);
     opacity: 0.3;
     left: 10px;
     bottom: -3px;
@@ -510,11 +493,27 @@ body {
   }
 
   &:hover {
-    color: v.$text-red-dark;
+    color: var(--button-color-dark);
   }
   &:hover::after {
     opacity: 0.5;
   }
+}
+
+.btn-border {
+  @extend .btn;
+  padding: 33px 89px;
+  border: 1px solid var(--button-border);
+  white-space: nowrap;
+
+  &::after {
+    content: '';
+    position: fixed;
+  }
+}
+
+.btn-border:hover {
+  border: 1px solid var(--button-color-dark);
 }
 
 .play-btn {
@@ -646,6 +645,7 @@ body {
     margin-top: 0;
     max-width: 100vw;
     height: 80px;
+    z-index: 1;
 
     &::before {
       content: '';
@@ -685,14 +685,14 @@ body {
       justify-content: center;
       align-items: center;
       gap: 10px;
-      // z-index: 4;
-
     }
   }
 
   .main {
     margin-top: 100px;
     position: relative;
+  }
+  .main.active {
     z-index: -1;
   }
   // headings
@@ -731,6 +731,16 @@ body {
   }
   .grid__container {
     grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .feature-box {
+    justify-content: start;
   }
 
   // footer
@@ -853,7 +863,7 @@ body {
     grid-template-columns: 70px 150px 70px;
     gap: 10px;
   }
- 
+
   .btn {
     font-weight: 400;
     font-size: 16px;

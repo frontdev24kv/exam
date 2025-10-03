@@ -1,23 +1,25 @@
-const toggleBtn = document.querySelector('.theme-btn');
-let theme = 'light';
-let bodyBackground = theme === 'light' ? '#fff' : '#000';
+// change theme
 
-toggleBtn.addEventListener('click', () => {
-  toggleBtn.classList.toggle('dark');
+let darkmode = localStorage.getItem('darkmode');
 
-  toggleBtn.classList.contains('dark') ? (theme = 'dark') : (theme = 'light');
+const themeSwitchBtn = document.querySelector('.theme-switch-btn');
 
-  if (toggleBtn.classList.contains('dark')) {
-    toggleBtn.innerHTML =
-      '<div class="circle"><i class="wi wi-lunar-eclipse"></i></div>';
-  } else {
-    toggleBtn.innerHTML =
-      '<div class="circle"><i class="wi wi-day-sunny"></i></i></div>';
-  }
-  console.log(theme);
+const enableDarkmode = () => {
+  document.body.classList.add('darkmode');
+  localStorage.setItem('darkmode', 'active');
+};
 
-  console.log(bodyBackground);
-  document.body.style.backgroundColor = bodyBackground;
+const disableDarkmode = () => {
+  document.body.classList.remove('darkmode');
+  localStorage.setItem('darkmode', null);
+};
+
+if (darkmode === 'active') enableDarkmode();
+
+themeSwitchBtn.addEventListener('click', () => {
+  darkmode = localStorage.getItem('darkmode');
+  darkmode !== 'active' ? enableDarkmode() : disableDarkmode();
+  console.log(darkmode);
 });
 
 // play video
@@ -31,19 +33,16 @@ playBtn.addEventListener('click', () => {
   } else {
     video.pause();
   }
-  
 });
 
-
 // adaptive menu
-
+const main = document.querySelector('.main');
 const burgerBtn = document.querySelector('.header__burger');
 const menu = document.querySelector('.header__menu');
 burgerBtn.addEventListener('click', toggleClass);
 
-
 function toggleClass() {
   burgerBtn.classList.toggle('active');
   menu.classList.toggle('active');
+  main.classList.toggle('active');
 }
-
